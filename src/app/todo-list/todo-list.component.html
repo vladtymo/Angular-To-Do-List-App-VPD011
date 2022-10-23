@@ -1,0 +1,19 @@
+<!-- pipe: convert value -->
+<!-- value | pipe_name -->
+
+<!-- One-way binding: interpolation - {{value to bind}} -->
+
+<!-- Structural directives: *ngFor *ngIf *ngSwitch -->
+<!-- Attribute directive: [ngClass]='class_name: condition' [class.class_name]='condition' -->
+<!-- Event: (event_name)="handler()" -->
+
+<img *ngIf="tasks.length == 0" src="https://cdn.dribbble.com/users/1753953/screenshots/3818675/animasi-emptystate.gif"
+    width="200">
+<ul>
+    <li *ngFor="let task of tasks" [class.done]="task.isComplete" (mouseenter)="setDescription(task.description)">
+        <h3>{{task.name | uppercase}}</h3>
+        <p>Deadline: {{task.date | date}}</p>
+        <p>Complete: {{task.isComplete ? 'Yes' : 'No'}}</p>
+    </li>
+</ul>
+<p>Description: {{currentDescription ?? 'No description'}}</p>
